@@ -1,0 +1,53 @@
+GameName = "Walmart"
+
+tab1name = "Main"
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
+
+local GameName = Library:NewWindow(GameName)
+
+local Tab1 = GameName:NewSection(tab1name)
+
+Tab1:CreateButton("CollectCoins", function(value)
+for i = 1, 200 do
+    game:GetService("ReplicatedStorage").Remotes.CollectCoinEvent:FireServer(i)
+end
+ end)
+
+Tab1:CreateButton("Give ball", function(value)
+local args = {
+    [1] = Color3.new(0.615686297416687, 0.250980406999588, 0.529411792755127)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("GiveBasketballEvent"):FireServer(unpack(args))
+ end)
+
+Tab1:CreateButton("UGC Task", function(value)
+local args = {
+    [1] = Color3.new(0.615686297416687, 0.250980406999588, 0.529411792755127)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("GiveBasketballEvent"):FireServer(unpack(args))
+local args = {
+    [1] = Vector3.new(-4514.9296875, -803.6358642578125, -821.0623779296875)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ThrowBasketballEvent"):FireServer(unpack(args))
+
+wait(6)
+end
+ end)
+
+Tab1:CreateButton("BasketBallPlace", function(value)
+for i = 1, 1 do
+local args = {
+    [1] = "Sports",
+    [2] = "Interior",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage").Remotes.RequestPortalEntryFunction:InvokeServer(unpack(args))
+end
+ end)
+
+local Tab2 = GameName:NewSection("Cocojale")
